@@ -1,0 +1,54 @@
+.card-grid {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 2rem auto;
+  overflow: hidden;
+
+  img {
+    width: 300px;
+    height: 300px; 
+    object-fit: cover; 
+    display: block;
+  }
+
+  .card-content {
+    padding: 1rem;
+
+    h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .card-date {
+      text-align: end;
+      margin-top: 8%;
+      font-size: 0.9rem;
+     
+      margin-bottom: 0.5rem;
+      display: block;
+      .span-date {
+        color: #07e012;
+      }
+    }
+    button{
+      margin-top: 1rem;
+      text-align: center;    
+      font-size:large ;  
+      width: 100%;
+      height: 50px;
+      color: white;
+      background-color: green;
+      border-radius: 10px;
+   
+    }
+  }
+}

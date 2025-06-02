@@ -1,0 +1,52 @@
+/* scss/navbar.scss */
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0a5337;
+  padding: 1rem;
+
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;  
+    width: 100%;
+    justify-content: center;
+  
+
+    li {
+      flex: 1; 
+      text-align: center;
+
+      a {
+        display: block;
+        width:95%;
+        padding: 0.50rem 0;
+        color: white;
+        text-decoration: none;
+      
+
+        &:hover {
+          background-color: #1e7256; 
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .navbar-menu {
+      flex-direction: column;
+
+      li {
+        width: 100%;
+
+        a {
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}
