@@ -29,8 +29,9 @@ export const ListPage: React.FC = () => {
             <Link to={`/detail/${member.login}`}>{member.login}</Link>
           </React.Fragment>
         )) }
-      </div>
-      <Link to="/detail">Navigate to detail page</Link>
+      </div>      
+     <Link to="/RMlist">Navigate to RM list page</Link>
+
     </>
   );
 };
