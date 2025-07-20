@@ -32,7 +32,7 @@ export default {
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
         {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|webp)$/,
         type: "asset/resource",
       },
            {
