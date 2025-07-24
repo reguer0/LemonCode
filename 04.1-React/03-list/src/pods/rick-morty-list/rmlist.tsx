@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { useRickMorty } from "./useRick&MortyData";
+import { useRickMortyData } from "./useRickMortyData";
 
 export const RMlist = () => {
-   const { members, loadUsers, filter, setFilter } = useRickMorty();
+   const { members, loadUsers, filter, setFilter } = useRickMortyData();
     const [inputValue, setInputValue] = React.useState(filter);
   
     React.useEffect(() => {

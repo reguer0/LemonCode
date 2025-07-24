@@ -1,18 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { ListPage } from "./list";
-import { DetailPage } from "./detail";
-import { RMlist } from "./rmlist";
+
+
+import { UserList } from "./scenes/list/userList";
+import {RickMortyList } from "./scenes/rick-morty/rickMortyList";
+import {Details } from "./scenes/details/details";
+
+// ...
+
 
 export const App = () => {
    
   return (
     <Router>
       <Routes>     
-         <Route path="/" element={<ListPage />} />
-        <Route path="/detail/:id" element={<DetailPage />} />
-        <Route path="/RMlist" element={<RMlist />} />
+        <Route path="/" element={<UserList />} />
+        <Route path="/detail/:id" element={<Details />} />
+        <Route path="/RMlist" element={<RickMortyList />} />
       </Routes>
     </Router>
   );
