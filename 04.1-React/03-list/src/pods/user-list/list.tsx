@@ -1,37 +1,64 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useCallback, useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { useUserCollection } from "./useUserCollection";
 
 export const ListPage: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const orgParam = searchParams.get("org") || "lemoncode";
   const { members, loadUsers, filter, setFilter } = useUserCollection();
-  const [inputValue, setInputValue] = React.useState(filter);
+  const [inputValue, setInputValue] = useState(orgParam);
 
-  React.useEffect(() => {
+  // Solo actualiza el filtro cuando cambia el parámetro de la URL
+  useEffect(() => {
+    setFilter(orgParam);
+  }, [orgParam, setFilter]);
+
+  // Carga los usuarios cuando cambia el filtro
+  useEffect(() => {
     loadUsers();
-  }, [filter]);
+  }, [filter, loadUsers]);
+
+  // Actualiza el input solo cuando cambia el parámetro de la URL
+  useEffect(() => {
+    setInputValue(orgParam);
+  }, [orgParam]);
+
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setInputValue(event.target.value);
+    },
+    []
+  );
+
+  const handleFilter = useCallback(() => {
+    setSearchParams({ org: inputValue });
+    // setFilter se ejecuta en el useEffect por el cambio de orgParam
+  }, [inputValue, setSearchParams]);
 
   return (
     <>
-      <h2>Hello from List page</h2>{" "}
-      <input type="text" placeholder="Filter by organization"  value={inputValue}
-        onChange={(event) => setInputValue( event.target.value)}
+      <h2>Hello from List page</h2>
+      <input
+        type="text"
+        placeholder="Filter by organization"
+        value={inputValue}
+        onChange={handleInputChange}
       />
-      <button onClick={() => setFilter(inputValue)}>Filter</button>
-     
+      <button onClick={handleFilter}>Buscar</button>
+
       <div className="list-user-list-container">
         <span className="list-header">Avatar</span>
         <span className="list-header">Id</span>
         <span className="list-header">Name</span>
-        { members?.map((member) => (
+        {members?.map((member) => (
           <React.Fragment key={member.id}>
             <img src={member.avatar_url} />
             <span>{member.id}</span>
-            <Link to={`/detail/${member.login}`}>{member.login}</Link>
+            <Link to={`/detail/${member.login}?org=${orgParam}`}>{member.login}</Link>
           </React.Fragment>
-        )) }
-      </div>      
-     <Link to="/RMlist">Navigate to RM list page</Link>
-
+        ))}
+      </div>
+      <Link to="/RMlist">Navigate to RM list page</Link>
     </>
   );
 };
