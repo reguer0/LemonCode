@@ -20,13 +20,18 @@ export const RMlist = () => {
           <span className="list-header">Avatar</span>
           <span className="list-header">Id</span>
           <span className="list-header">Name</span>
-          { members?.map((member) => (
-            <React.Fragment key={member.id}>
-              <img src={member.image} />
-              <span>{member.id}</span>
-              <Link to={`/detail/${member.name}`}>{member.name}</Link>
-            </React.Fragment>
-          )) }
+          { members ? (
+              members.map((member) => (
+                <React.Fragment key={member.id}>
+                  <img src={member.image} />
+                  <span>{member.id}</span>
+                  <Link to={`/detail/${member.name}`}>{member.name}</Link>
+                </React.Fragment>
+              )) 
+            ) : (
+              <span>No members found</span>
+            )
+          }
         </div>      
       <Link to="/">Back to list page</Link>
     </>

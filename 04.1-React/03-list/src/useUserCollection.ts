@@ -1,10 +1,8 @@
 import React from "react";
+import {MemberEntity} from "./model";
 
-interface MemberEntity {
-  id: string;
-  login: string;
-  avatar_url: string;
-}
+
+
 export const useUserCollection = () => {
   const [filter, setFilter] = React.useState("lemoncode");
   const [members, setMembers] = React.useState<MemberEntity[]>([]);

@@ -1,10 +1,6 @@
 import React from "react";
+import {MemberEntity} from "./model";
 
-interface MemberEntity {
-  id: string;
-  name: string;
-  image: string;
-}
 export const useRickMorty = () => {
   const [filter, setFilter] = React.useState("Rick Sanchez");
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
@@ -17,3 +13,4 @@ export const useRickMorty = () => {
 
   return { members, loadUsers, filter, setFilter };
 };
+   
