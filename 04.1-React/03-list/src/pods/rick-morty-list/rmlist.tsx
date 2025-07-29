@@ -25,7 +25,7 @@ export const RMlist = () => {
                 <React.Fragment key={member.id}>
                   <img src={member.image} />
                   <span>{member.id}</span>
-                  <Link to={`/detail/${member.name}`}>{member.name}</Link>
+                  <Link to={`/RMdetail/${member.name}`}>{member.name}</Link>
                 </React.Fragment>
               )) 
             ) : (
