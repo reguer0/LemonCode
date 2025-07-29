@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useRickMortyData } from "./useRickMortyData";
 
+import { Button ,TextField ,Avatar } from "@mui/material";
+
 export const RMlist = () => {
   const {
     members,
@@ -25,20 +27,20 @@ export const RMlist = () => {
 
   return (
     <>
-      <input
+      <TextField
         type="text"
         placeholder="Buscar personaje"
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
       />
-      <button
+      <Button
         onClick={() => {
           setFilter(inputValue);
           setPage(1); // Reiniciar a la primera página cuando se aplica nuevo filtro
         }}
       >
         Filtrar
-      </button>
+      </Button>
 
       <div className="list-user-list-container">
         <span className="list-header">Avatar</span>
@@ -49,7 +51,7 @@ export const RMlist = () => {
         ) : members && members.length > 0 ? (
           members.map((member) => (
             <React.Fragment key={member.id}>
-              <img src={member.image} alt={member.name} />
+              <Avatar src={member.image} alt={member.name} />
               <span>{member.id}</span>
               <Link to={`/RMdetail/${member.name}`}>{member.name}</Link>
             </React.Fragment>

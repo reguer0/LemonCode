@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useUserCollection } from "./useUserCollection";
+import { Button ,TextField ,Avatar } from "@mui/material";
 
 export const ListPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -38,13 +39,13 @@ export const ListPage: React.FC = () => {
   return (
     <>
       <h2>Hello from List page</h2>
-      <input
+      <TextField
         type="text"
         placeholder="Filter by organization"
         value={inputValue}
         onChange={handleInputChange}
       />
-      <button onClick={handleFilter}>Buscar</button>
+      <Button onClick={handleFilter}>Buscar</Button>
 
       <div className="list-user-list-container">
         <span className="list-header">Avatar</span>
@@ -52,7 +53,7 @@ export const ListPage: React.FC = () => {
         <span className="list-header">Name</span>
         {members?.map((member) => (
           <React.Fragment key={member.id}>
-            <img src={member.avatar_url} />
+            <Avatar src={member.avatar_url} />
             <span>{member.id}</span>
             <Link to={`/detail/${member.login}?org=${orgParam}`}>{member.login}</Link>
           </React.Fragment>
