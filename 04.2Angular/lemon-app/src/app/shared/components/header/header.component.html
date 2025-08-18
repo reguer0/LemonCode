@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="toolbar">
+  <div class="brand" routerLink="/home">
+    <img src="assets/logo.svg" alt="" class="logo" />
+    <span class="title">Lemon App</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  @if (auth.isLogged()) {
+    <app-nav-private />
+    <button mat-button (click)="logout()" aria-label="Salir">
+      <mat-icon>logout</mat-icon>
+      Salir
+    </button>
+    <span class="username" title="Usuario">{{ auth.username() }}</span>
+  } @else {
+    <app-nav-public />
+  }
+</mat-toolbar>

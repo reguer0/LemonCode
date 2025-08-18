@@ -1,0 +1,24 @@
+.login-container {
+  max-width: 400px;
+  margin: 48px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  h1 {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .error-msg {
+    color: #d32f2f;
+    margin: 8px 0;
+    font-weight: 500;
+  }
+}
