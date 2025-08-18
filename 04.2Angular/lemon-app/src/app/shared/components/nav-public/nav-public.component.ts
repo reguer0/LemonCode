@@ -6,11 +6,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-nav-public',
   standalone: true,
   imports: [MatButtonModule, RouterModule],
-  template: `
-    <a mat-button routerLink="/home">Home</a>
-    <a mat-button routerLink="/login">Login</a>
-    <a mat-button routerLink="/about">Acerca de</a>
-  `,
+  templateUrl: './nav-public.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavPublicComponent {}

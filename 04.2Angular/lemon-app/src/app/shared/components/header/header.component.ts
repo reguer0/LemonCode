@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/auth/auth.service';
 import { NavPublicComponent } from '../nav-public/nav-public.component';
 import { NavPrivateComponent } from '../nav-private/nav-private.component';
@@ -16,6 +16,12 @@ import { NavPrivateComponent } from '../nav-private/nav-private.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+    private router = inject(Router);
   readonly auth = inject(AuthService);
-  logout() { this.auth.logout(); }
-}
+
+  logout() { 
+    this.auth.logout();
+    this.router.navigate(['/home']);
+  }
+
+   }

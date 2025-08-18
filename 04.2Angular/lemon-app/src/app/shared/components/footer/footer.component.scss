@@ -1,6 +1,7 @@
-.footer {
-     padding: 24px; 
-     text-align: center; 
-     opacity: .75; 
-    margin-top: auto;
+:host {
+  display: block;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
 }
