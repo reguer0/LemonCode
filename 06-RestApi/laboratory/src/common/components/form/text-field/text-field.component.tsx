@@ -1,13 +1,11 @@
 import React from 'react';
-import { cx } from '@emotion/css';
 import { useField } from 'formik';
 import { TextField as MuiTextField, TextFieldProps } from '@mui/material';
-import * as classes from './text-field.styles';
 
 export const TextFieldComponent: React.FunctionComponent<TextFieldProps> = (
   props
 ) => {
-  const { name, onChange, onBlur, value, error, slotProps } = props;
+  const { name, onChange, onBlur, value, error, inputProps } = props;
 
   const [field, meta] = Boolean(name) ? useField(name) : [];
   const hasError = error || Boolean(meta && meta.touched && meta.error);
@@ -25,16 +23,6 @@ export const TextFieldComponent: React.FunctionComponent<TextFieldProps> = (
       helperText={hasError ? helperText : ''}
       fullWidth={true}
       margin="normal"
-      slotProps={{
-        ...slotProps,
-        htmlInput: {
-          ...slotProps?.htmlInput,
-          className: cx(
-            (slotProps?.htmlInput as any)?.className,
-            classes.input
-          ),
-        },
-      }}
     />
   );
 };
